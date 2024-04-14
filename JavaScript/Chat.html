@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Box</title>
+<style>
+body {
+    
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  
+  max-width: 400px;
+  margin: 20px auto;
+  border: 1px solid #cccccce3;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+}
+
+.chat-box {
+  height: 350px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #a59f9f;
+  margin-bottom: 10px;
+}
+
+#message-input {
+  width: calc(100% - 90px);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+button {
+    
+padding: 15px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: rosybrown;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.close {
+  background-color: #b80f20;
+  
+}
+
+button:hover {
+  background-color: #0cb300;
+}
+</style>
+</head>
+<body>
+    
+
+<div class="chat-container">
+    <h2 style="color: #0cb300;">Message</h2>
+  <div class="chat-box" id="chat-box"></div>
+  <input type="text" id="message-input" placeholder="Type Your Message...">
+  <button onclick="sendMessage()">Send</button>
+  <button class="close" onclick="closeChat()">Close</button>
+</div>
+
+<script>
+function sendMessage() {
+  var messageInput = document.getElementById("message-input");
+  var message = messageInput.value;
+  if (message.trim() === "") {
+    alert("Please enter a message.");
+    return;
+  }
+  var chatBox = document.getElementById("chat-box");
+  var messageElement = document.createElement("div");
+  messageElement.innerText = message;
+  messageElement.classList.add("message");
+  chatBox.appendChild(messageElement);
+  messageInput.value = "";
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function closeChat() {
+  var chatContainer = document.querySelector(".chat-container");
+  chatContainer.style.display = "none";
+}
+</script>
+
+</body>
+</html>

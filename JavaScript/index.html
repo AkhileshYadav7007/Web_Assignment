@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><p id="p">Content and color of this text will change. </p></h1>
+    <button type="button" onclick="ChangeColor('green')" style="background-color:green;">Change color to Green</button>
+    <button type="button" onclick="ChangeColor('red')" style="background-color: red;">Change color to Red</button><br><br>
+
+    <input type="text" id="t"><br><br>
+    <input type="text" id="textbox" style="border-color: blue;" ><br><br>
+
+    <button type="button" onclick="ChangeText()">Change Text</button><br><br>
+    
+    <input type="text" id="myTextbox" onfocus="backColor(this)"><br><br>
+   
+    <input type="text" id="text1" onchange="upperCase()"><br><br>
+
+    <p onmouseover="mOver(this)" onmouseout="mOut(this)">Welcome to my Text</p>
+
+
+
+
+   
+    <!-- Javascript -->
+    
+    <script>
+        function ChangeColor(cls){
+            document.getElementById("p").style.color = cls;
+        }
+        function ChangeText(){
+            var x = document.getElementById("t").value;
+        
+        document.getElementById("p").innerHTML = x;
+        }
+        
+        function backColor(x){
+            
+x.style.background = "yellow";
+
+        
+<!-- upperCase -->
+        }
+        function upperCase(){
+            var x = document.getElementById("text1");
+            x.value = x.value.toUpperCase();
+
+        }
+        function mOver(x){
+            x.innerHTML = "Change Text";
+        }
+        function mOut(x){
+            x.innerHTML = "This Text Will Change";
+
+        }
+        
+
+    </script>
+</body>
+</html>
+ 
